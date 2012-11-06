@@ -61,8 +61,6 @@ public class CounterTest {
     @Test
     public void testUpButtonCount() throws Exception {
 
-        remote = new RemoteControl();
-        counter.setRemoteControl(remote);
         remote.setBlockedChannels(Arrays.asList(3, 5, 6, 9));
         remote.setLowestChannel(1);
         remote.setHighestChannel(10);
@@ -86,8 +84,6 @@ public class CounterTest {
     @Test
     public void testDownButtonCount() throws Exception {
 
-        remote = new RemoteControl();
-        counter.setRemoteControl(remote);
         remote.setBlockedChannels(Arrays.asList(3, 5, 6, 9));
         remote.setLowestChannel(1);
         remote.setHighestChannel(10);
@@ -114,10 +110,6 @@ public class CounterTest {
     @Test
     public void testCountIndividualButtonPressBack() throws Exception {
 
-        remote = new RemoteControl();
-        buttonCounter = new ButtonCounter(remote);
-        counter = buttonCounter.getCounter();
-
         remote.setBlockedChannels(Arrays.asList(3, 5, 6, 9));
         remote.setLowestChannel(1);
         remote.setHighestChannel(100);
@@ -133,9 +125,6 @@ public class CounterTest {
 
     @Test
     public void testCountIndividualButtonPressForward() throws Exception {
-        remote = new RemoteControl();
-        buttonCounter = new ButtonCounter(remote);
-        counter = buttonCounter.getCounter();
 
         remote.setLowestChannel(1);
         remote.setHighestChannel(100);
@@ -152,10 +141,6 @@ public class CounterTest {
     @Test
     public void testCountIndividualButtonPressBackward() throws Exception {
 
-        remote = new RemoteControl();
-        buttonCounter = new ButtonCounter(remote);
-        counter = buttonCounter.getCounter();
-
         remote.setLowestChannel(1);
         remote.setHighestChannel(100);
         remote.setBlockedChannels(Arrays.asList(99));
@@ -171,10 +156,6 @@ public class CounterTest {
     @Test
     public void testCountIndividualButtonPressBackWithDown() throws Exception {
 
-        remote = new RemoteControl();
-        buttonCounter = new ButtonCounter(remote);
-        counter = buttonCounter.getCounter();
-
         remote.setLowestChannel(1);
         remote.setHighestChannel(1000);
         remote.setBlockedChannels(Arrays.asList(999));
@@ -189,10 +170,6 @@ public class CounterTest {
 
     @Test
     public void testCountIndividualButtonPressBackWithUp() throws Exception {
-
-        remote = new RemoteControl();
-        buttonCounter = new ButtonCounter(remote);
-        counter = buttonCounter.getCounter();
 
         remote.setLowestChannel(1);
         remote.setHighestChannel(1000);
