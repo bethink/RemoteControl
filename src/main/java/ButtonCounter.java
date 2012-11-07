@@ -126,8 +126,8 @@ public class ButtonCounter {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {
-            Exception exception = new Exception("Error: Invalid input data");
-            exception.printStackTrace();
+            System.out.println("Error: Invalid input data");
+            System.exit(0);
         }
 
 
