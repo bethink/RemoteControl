@@ -1,4 +1,3 @@
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -12,11 +11,11 @@ import static org.testng.Assert.*;
 * Time: 4:15 PM
 * To change this template use File | Settings | File Templates.
 */
-public class CounterTest {
+public class CounterImplementationTest {
 
     RemoteControl remote;
     ButtonCounter buttonCounter;
-    Counter counter;
+    CounterImplementation counter;
 
     @BeforeMethod
     public void beforeClass(){

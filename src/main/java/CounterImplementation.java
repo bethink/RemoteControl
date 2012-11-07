@@ -5,7 +5,7 @@
  * Time: 3:28 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Counter {
+public class CounterImplementation {
 
     ButtonCounter buttonCounter;
     RemoteControl remoteControl;
@@ -19,7 +19,7 @@ public class Counter {
         this.remoteControl = remoteControl;
     }
 
-    public Counter(ButtonCounter buttonCounter){
+    public CounterImplementation(ButtonCounter buttonCounter){
         this.buttonCounter = buttonCounter;
         this.remoteControl = buttonCounter.getRemoteControl();
     }
@@ -37,13 +37,13 @@ public class Counter {
         if( this.getRemoteControl().getCurrentChannel() == 0 ){
             int digitCount = this.buttonDigitCount();
             buttonCounter.increaseCount(digitCount);
-            System.out.println("digitCount: " + digitCount);
+//            System.out.println("digitCount: " + digitCount);
             return;
         }
 
         if (isPrevChannelMaching()) {
             buttonCounter.increaseCount(1);
-            System.out.println("Back: " + 1);
+//            System.out.println("Back: " + 1);
         }else{
 
             int digitCount = this.buttonDigitCount();
@@ -52,13 +52,12 @@ public class Counter {
             int backWithDownCount = this.backWithDownButtonCount();
             int backWithUpCount = this.backWithUpButtonCount();
 
-            System.out.println("digitCount: " + digitCount);
-            System.out.println("upCount: " + upCount);
-            System.out.println("downCount: " + downCount);
-            System.out.println("backWithDownCount: " + backWithDownCount);
-            System.out.println("backWithUpCount: " + backWithUpCount);
-            System.out.println();
-
+//            System.out.println("digitCount: " + digitCount);
+//            System.out.println("upCount: " + upCount);
+//            System.out.println("downCount: " + downCount);
+//            System.out.println("backWithDownCount: " + backWithDownCount);
+//            System.out.println("backWithUpCount: " + backWithUpCount);
+//            System.out.println();
 
             int count = digitCount < upCount ? digitCount : upCount;
             count = count < downCount ? count : downCount;

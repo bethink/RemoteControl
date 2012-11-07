@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class RemoteControl {
 
-
     private int lowestChannel;
     private int highestChannel;
     private int previousChannel;
@@ -66,9 +65,5 @@ public class RemoteControl {
     public int getPreviousChannel() {
         return previousChannel;
     }
-
-//    public void setPreviousChannel(int previousChannel) {
-//        this.previousChannel = previousChannel;
-//    }
 
 }

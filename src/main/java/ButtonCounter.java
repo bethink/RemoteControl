@@ -16,20 +16,20 @@ public class ButtonCounter {
     private RemoteControl remoteControl;
     private int countButtonPress;
 
-    private Counter counter;
+    private CounterImplementation counter;
 
     public ButtonCounter(RemoteControl remote) {
         this.setRemoteControl(remote);
         this.setViewChannels(new LinkedList<Integer>());
         this.setCountButtonPress(0);
-        this.setCounter(new Counter(this));
+        this.setCounter(new CounterImplementation(this));
     }
 
-    public Counter getCounter() {
+    public CounterImplementation getCounter() {
         return counter;
     }
 
-    public void setCounter(Counter counter) {
+    public void setCounter(CounterImplementation counter) {
         this.counter = counter;
     }
 
@@ -73,7 +73,7 @@ public class ButtonCounter {
         this.setCountButtonPress(this.getCountButtonPress() - count);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         System.out.println("Input:");
         BufferedReader lowestHighestReader = new BufferedReader(new InputStreamReader(System.in));
@@ -87,6 +87,8 @@ public class ButtonCounter {
 
             RemoteControl remote = new RemoteControl();
             ButtonCounter buttonCounter = new ButtonCounter(remote);
+
+            Validator validator = new Validator();
 
 //          =============== Lowest Highest input ===============
             remote.setLowestChannel(Integer.parseInt(lowestHighestArray[0]));
@@ -103,13 +105,27 @@ public class ButtonCounter {
                 buttonCounter.getViewChannels().add(Integer.parseInt(numberString));
             }
 
+//            TODO: Validation should be added after each input has been taken
+            validator.validateLowHigh(buttonCounter.getRemoteControl());
+            validator.validateBlockedChannels(buttonCounter.getRemoteControl());
+            validator.validateViewChannels(buttonCounter);
+
+            if( !validator.isDataValid() ){
+                System.out.println("Error:");
+                System.out.println(validator.getErrorMessages());
+                System.exit(0);
+            }
+
             buttonCounter.getViewChannels().remove(0);
             buttonCounter.countButtonPress();
 
             System.out.println("Output: " + buttonCounter.getCountButtonPress());
 
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            Exception exception = new Exception("Error: Invalid input data");
+            exception.printStackTrace();
         }
 
 
