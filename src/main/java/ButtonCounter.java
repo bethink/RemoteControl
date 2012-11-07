@@ -105,6 +105,8 @@ public class ButtonCounter {
                 buttonCounter.getViewChannels().add(Integer.parseInt(numberString));
             }
 
+            buttonCounter.getViewChannels().remove(0);
+
 //            TODO: Validation should be added after each input has been taken
             validator.validateLowHigh(buttonCounter.getRemoteControl());
             validator.validateBlockedChannels(buttonCounter.getRemoteControl());
@@ -116,7 +118,7 @@ public class ButtonCounter {
                 System.exit(0);
             }
 
-            buttonCounter.getViewChannels().remove(0);
+
             buttonCounter.countButtonPress();
 
             System.out.println("Output: " + buttonCounter.getCountButtonPress());
