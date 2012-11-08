@@ -11,6 +11,14 @@ RemoteControl
 
     Give the input.
 
+
+    Development environment:
+    ------------------------
+
+    IDE: IntelliJ
+    OS: Ubuntu
+    Testing Framework: TestNG
+
     =====================================
 
     Test Case #1
